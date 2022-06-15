@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderColor: '#e8e8e8',
         borderWidth: 0.5,
-        paddingVertical: 15,
+        // paddingVertical: 10,
         borderRadius: 5,
         paddingHorizontal: 15,
     },
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     input: {
         // color: 'black',
         // width: '100%',
-        // padding: 15,
+        paddingVertical: 15,
     }
 })
 

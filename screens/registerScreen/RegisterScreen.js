@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import React, {useState} from 'react'
 import CustomButton from '../../components/customButton/CustomButton'
 import CustomInput from '../../components/customInput/CustomInput'
-import { TextInput } from 'react-native-gesture-handler';
+import { ScrollView, TextInput } from 'react-native-gesture-handler';
 
 export default function RegisterScreen({navigation}) {
     const [userName, setUserName] = useState('');
@@ -23,62 +23,65 @@ export default function RegisterScreen({navigation}) {
     }
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Register</Text>
-            <View style={styles.input_container}>
-                <View style={styles.sub_container}>
-                    <Text>Username(*):</Text>
-                    <CustomInput 
-                        placeholder={"username"}
-                        value={userName}
-                        setValue={setUserName}/>
+        <ScrollView showsVerticalScrollIndicator={false}>
+            <View style={styles.container}>
+                <Text style={styles.title}>Register</Text>
+                <View style={styles.input_container}>
+                    <View style={styles.sub_container}>
+                        <Text>Username(*):</Text>
+                        <CustomInput 
+                            placeholder={"username"}
+                            value={userName}
+                            setValue={setUserName}/>
+                    </View>
+                    <View style={styles.sub_container}>
+                        <Text>Password(*):</Text>
+                        <CustomInput 
+                            placeholder={"password"}
+                            value={password}
+                            srt={true}
+                            setValue={setPassword}/>
+                    </View>
+                    <View style={styles.sub_container}>
+                        <Text>Verify Password(*):</Text>
+                        <CustomInput 
+                            placeholder={"verify password"}
+                            value={verifyPW}
+                            srt={true}
+                            setValue={setVerifyPW}/>
+                    </View>
+                    <View style={styles.sub_container}>
+                        <Text>Name(*):</Text>
+                        <CustomInput 
+                            placeholder={"your name"}
+                            value={name}
+                            setValue={setName}/>
+                    </View>
+                    <View style={styles.sub_container}>
+                        <Text>Phone Number:</Text>
+                        <CustomInput 
+                            placeholder={"phonenumber"}
+                            value={phonenumber}
+                            inputType={'phone-pad'}
+                            setValue={setPhonenumber}/>
+                    </View>
+                    <View style={styles.sub_container}>
+                        <Text>Email(*):</Text>
+                        <CustomInput 
+                            placeholder={"email"}
+                            value={email}
+                            inputType={'email-address'}
+                            setValue={setemail}/>
+                    </View>                
                 </View>
-                <View style={styles.sub_container}>
-                    <Text>Password(*):</Text>
-                    <CustomInput 
-                        placeholder={"password"}
-                        value={password}
-                        srt={true}
-                        setValue={setPassword}/>
-                </View>
-                <View style={styles.sub_container}>
-                    <Text>Verify Password(*):</Text>
-                    <CustomInput 
-                        placeholder={"verify password"}
-                        value={verifyPW}
-                        srt={true}
-                        setValue={setVerifyPW}/>
-                </View>
-                <View style={styles.sub_container}>
-                    <Text>Name(*):</Text>
-                    <CustomInput 
-                        placeholder={"your name"}
-                        value={name}
-                        setValue={setName}/>
-                </View>
-                <View style={styles.sub_container}>
-                    <Text>Phone Number:</Text>
-                    <CustomInput 
-                        placeholder={"phonenumber"}
-                        value={phonenumber}
-                        inputType={'phone-pad'}
-                        setValue={setPhonenumber}/>
-                </View>
-                <View style={styles.sub_container}>
-                    <Text>Email(*):</Text>
-                    <CustomInput 
-                        placeholder={"email"}
-                        value={email}
-                        inputType={'email-address'}
-                        setValue={setemail}/>
-                </View>                
-            </View>
-            
-            <CustomButton 
-                text={"Register"}
-                bgColor={"#7f0e16"}
-                onPress={verify}/>
-        </View>
+                
+                <CustomButton 
+                    text={"Register"}
+                    bgColor={"#7f0e16"}
+                    onPress={verify}/>
+            </View>            
+        </ScrollView>
+
   )
 }
 

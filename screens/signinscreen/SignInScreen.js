@@ -7,12 +7,13 @@ import Img from '../../assets/images/logo.png'
 
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
-// import {  } from 'react-native-gesture-handler'
 
 const SignInScreen = ({navigation}) => {
 
         GoogleSignin.configure({
-            webClientId: '278758243478-v3ugcqrsua6gtks5s62amul02ukb48c1.apps.googleusercontent.com',
+            webClientId: '278758243478-uo6dg9ekbfmjh09opajrspev4ktmu32l.apps.googleusercontent.com',
+            iosClientId: '278758243478-v3ugcqrsua6gtks5s62amul02ukb48c1.apps.googleusercontent.com',
+            // 
         });
 
         const [username, setUsername] = useState('');
@@ -59,7 +60,7 @@ const SignInScreen = ({navigation}) => {
 
 
         return (
-            <ScrollView >
+            <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.container}>
                     <Image source={Img} style={styles.logo} resizeMode="contain"/>
                     <View style={styles.input_container}>

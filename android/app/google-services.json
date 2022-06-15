@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "278758243478",
+    "project_id": "native-g",
+    "storage_bucket": "native-g.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:278758243478:android:53382ee46c009991ca96b7",
+        "android_client_info": {
+          "package_name": "com.appgl5"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "278758243478-fp4503db67id7epue0jni1kub1vknee5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.appgl5",
+            "certificate_hash": "dded11760f51f58a157d28641c09e36e4720930b"
+          }
+        },
+        {
+          "client_id": "278758243478-jbm52or9iphb94h17u0r32kmgkhbher9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.appgl5",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "278758243478-uo6dg9ekbfmjh09opajrspev4ktmu32l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0OrhxPCusjmobPdtP4AsIZtWd2ckWkCM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "278758243478-2ad5e78a864f4hlk3t4t1a5hr0h52srf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "278758243478-hs6437o3f9d6ndt49ie6m1sdtt1spgdi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.HelloWord"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
