@@ -2,6 +2,7 @@ import { View, Text, TextInput, StyleSheet } from 'react-native'
 import React from 'react'
 
 const CustomInput = ({value, setValue, placeholder, srt, inputType='default'}) => {
+  const [borderColor, setBorderColor] = React.useState();
   return (
     <View style={styles.input_container}>
         <TextInput 
@@ -10,7 +11,8 @@ const CustomInput = ({value, setValue, placeholder, srt, inputType='default'}) =
           value={value}
           onChangeText={setValue}
           secureTextEntry={srt}
-          keyboardType={inputType}
+          keyboardType={inputType}  
+          // onPressIn={setBorderColor("#7f0e16")}
           />
     </View>
   )

@@ -3,9 +3,9 @@ import React, {useState} from 'react'
 import CustomButton from '../../components/customButton/CustomButton'
 import CustomInput from '../../components/customInput/CustomInput'
 import { ScrollView, TextInput } from 'react-native-gesture-handler';
+import auth from '@react-native-firebase/auth';
 
 export default function RegisterScreen({navigation}) {
-    const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [verifyPW, setVerifyPW] = useState('');
     const [name, setName] = useState('');
@@ -13,12 +13,31 @@ export default function RegisterScreen({navigation}) {
     const [phonenumber, setPhonenumber] = useState('');
 
     const verify = () => {
-        if (!userName || !password || !verifyPW || !name || !email){
+        if (!password || !verifyPW || !name || !email){
             console.warn("You must fill in (*)");
         }
 
-        if (password != verifyPW){
+        else if (password != verifyPW){
             console.warn("Your password is not match!");
+        }
+
+        else {
+            auth()
+                .createUserWithEmailAndPassword(email, password)
+                .then(() => {
+                    console.log('User account created!');
+                    navigation.goBack();
+                })
+                .catch(error => {
+                    if (error.code === 'auth/email-already-in-use') {
+                    console.log('That email address is already in use!');
+                    }
+
+                    if (error.code === 'auth/invalid-email') {
+                    console.log('That email address is invalid!');
+                    }
+                    console.error(error);
+                });
         }
     }
 
@@ -28,12 +47,13 @@ export default function RegisterScreen({navigation}) {
                 <Text style={styles.title}>Register</Text>
                 <View style={styles.input_container}>
                     <View style={styles.sub_container}>
-                        <Text>Username(*):</Text>
+                        <Text>Email(*):</Text>
                         <CustomInput 
-                            placeholder={"username"}
-                            value={userName}
-                            setValue={setUserName}/>
-                    </View>
+                            placeholder={"email"}
+                            value={email}
+                            inputType={'email-address'}
+                            setValue={setemail}/>
+                    </View>     
                     <View style={styles.sub_container}>
                         <Text>Password(*):</Text>
                         <CustomInput 
@@ -64,17 +84,8 @@ export default function RegisterScreen({navigation}) {
                             value={phonenumber}
                             inputType={'phone-pad'}
                             setValue={setPhonenumber}/>
-                    </View>
-                    <View style={styles.sub_container}>
-                        <Text>Email(*):</Text>
-                        <CustomInput 
-                            placeholder={"email"}
-                            value={email}
-                            inputType={'email-address'}
-                            setValue={setemail}/>
-                    </View>                
+                    </View>           
                 </View>
-                
                 <CustomButton 
                     text={"Register"}
                     bgColor={"#7f0e16"}

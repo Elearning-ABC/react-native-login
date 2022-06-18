@@ -9,8 +9,7 @@ const CustomButton = ({onPress, text, type="PRIMARY", bgColor, fgColor}) => {
         styles[`container_${type}`],
         bgColor ? {backgroundColor : bgColor} : {},
       ]}
-      onPress = {onPress}
-      android_ripple={{backgroundColor: 'cyan'}}>
+      onPress = {onPress}>
         
       <Text 
         style={[
