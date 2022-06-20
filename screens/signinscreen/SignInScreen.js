@@ -81,43 +81,6 @@ const SignInScreen = ({navigation}) => {
                                 if (error === 'auth/user-not-found' || error == 'auth/wrong-password') console.warn('account or password is incorrect');
                                 if (error === 'auth/too-many-requests') console.warn('pls calm down, this is too many request');
                             })
-            // const usersRef = firebase.firestore().collection('users')
-            // usersRef
-            //     .doc(uid)
-            //     .get()
-            //     .then(firestoreDocument => {
-            //         if (!firestoreDocument.exists) {
-            //             alert("User does not exist anymore.")
-            //         }
-            //         else{
-            //             // const user = firestoreDocument.data()
-            //             // navigation.navigate('Home', {user})
-            //             setLoading(true);
-            //             auth()
-            //                 .signInWithEmailAndPassword(email, password)
-            //                 .then((res) => {
-            //                     console.log(res)
-            //                     console.log('User logged-in successfully!')
-            //                     setEmail('');
-            //                     setPassword('');
-            //                     setLoading('');
-            //                     navigation.navigate('LoggedInScreen',
-            //                     {
-            //                         displayName: "re.user.displayName",
-            //                         email: email,
-            //                         photoURL: "re.user.photoURL",
-            //                         phoneNumber: "re.user.phoneNumber",
-            //                         uid: "re.user.uid"
-            //                     });
-            //                 })
-            //                 .catch(error => {
-            //                     if (error.code === 'auth/email-already-in-use') {
-            //                         console.log('That email address is already in use!');
-            //                         }
-            //                 })
-            //         }
-            //      })
-                 
         }
     }
 
@@ -140,8 +103,7 @@ const SignInScreen = ({navigation}) => {
                                 console.log(re.user);
                                 if (re.user) {
                                     navigation.navigate('LoggedInScreen',
-                                                        {
-                                                            displayName: re.user.displayName,
+                                                        {   displayName: re.user.displayName,
                                                             email: re.user.email,
                                                             photoURL: re.user.photoURL,
                                                             phoneNumber: re.user.phoneNumber,
@@ -151,8 +113,7 @@ const SignInScreen = ({navigation}) => {
             })
         } catch (error){
             console.log("cancel");
-        }
-        
+        }   
     }
         
     const onSignInWithApple = async () => {

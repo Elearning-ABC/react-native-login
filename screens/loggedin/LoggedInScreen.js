@@ -30,7 +30,7 @@ const LoggedInScreen = ({route, navigation}) => {
       setTimeout(() => {
         setLoadingData(true);
       }, 1000);
-    },[isLoadingData])
+    },[])
 
     useEffect(() => {
       const backAction = () => {
@@ -40,7 +40,15 @@ const LoggedInScreen = ({route, navigation}) => {
             onPress: () => null,
             style: "cancel"
             },
-            { text: "YES", onPress: () => navigation.goBack() }
+            { text: "YES", onPress: () => {
+                                            auth()
+                                                .signOut()
+                                                .then(() => {
+                                                  GoogleSignin.signOut();
+                                                  navigation.goBack();
+                                                  console.log('User signed out!')
+                                                });
+                                            }}
         ]);
         return true;
       };
@@ -54,18 +62,29 @@ const LoggedInScreen = ({route, navigation}) => {
     }, []);
 
     const log_out = () => {
-      auth()
-          .signOut()
-          .then(() => {
-            GoogleSignin.signOut();
-            navigation.goBack();
-            console.log('User signed out!')});
-            // console.log('User signed out!')});
+      Alert.alert("!",
+                  "Are you sure you want to log out?", 
+                  [{text: "Cancel",
+                    onPress: () => null,
+                    style: "cancel"
+                    },
+                    { text: "YES", onPress: () => {
+                                                  auth()
+                                                      .signOut()
+                                                      .then(() => {
+                                                        GoogleSignin.signOut();
+                                                        navigation.goBack();
+                                                        console.log('User signed out!')
+                                                      });
+                                                  }
+                    }
+                  ]);
     }
 
     if (!isLoadingData) {
       return <LoadingScreen/>
     }
+    
   return (
     <View style={styles.container}>
       <Image style={styles.photo}
